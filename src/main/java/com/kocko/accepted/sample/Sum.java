@@ -1,4 +1,4 @@
-package com.kocko.accepted;
+package com.kocko.accepted.sample;
 
 import com.kocko.accepted.problem.Solvable;
 import com.kocko.accepted.utils.InputReader;
@@ -14,7 +14,7 @@ public class Sum implements Solvable {
         for (int i = 0; i < n; i++) {
             sum += in.nl();
         }
-        out.println(sum - 1);
+        out.println(sum);
     }
-    
+
 }

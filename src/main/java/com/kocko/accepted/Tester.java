@@ -50,7 +50,7 @@ public class Tester {
         Verdict verdict = Verdict.OK;
 
         final String pattern = "%s-%02d.%s";
-        
+
         String judgeFileName = format(pattern, problemName, testCase, "out");
         String mineFileName = format(pattern, problemName, testCase, "mine");
         BufferedReader judgeSolution = new BufferedReader(new FileReader(new File(judgeFileName)));
