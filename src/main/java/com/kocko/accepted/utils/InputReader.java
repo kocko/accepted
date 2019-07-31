@@ -8,35 +8,35 @@ import java.util.StringTokenizer;
 
 public class InputReader {
 
-    private BufferedReader reader;
-    private StringTokenizer tokenizer;
+  private BufferedReader reader;
+  private StringTokenizer tokenizer;
 
-    public InputReader(InputStream stream) {
-        reader = new BufferedReader(new InputStreamReader(stream), 32768);
-        tokenizer = null;
-    }
+  public InputReader(InputStream stream) {
+    reader = new BufferedReader(new InputStreamReader(stream), 32768);
+    tokenizer = null;
+  }
 
-    public String next() {
-        while (tokenizer == null || !tokenizer.hasMoreTokens()) {
-            try {
-                tokenizer = new StringTokenizer(reader.readLine());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return tokenizer.nextToken();
+  public String next() {
+    while (tokenizer == null || !tokenizer.hasMoreTokens()) {
+      try {
+        tokenizer = new StringTokenizer(reader.readLine());
+      } catch (IOException e) {
+        throw new RuntimeException(e);
+      }
     }
+    return tokenizer.nextToken();
+  }
 
-    public int ni() {
-        return Integer.parseInt(next());
-    }
+  public int ni() {
+    return Integer.parseInt(next());
+  }
 
-    public long nl() {
-        return Long.parseLong(next());
-    }
+  public long nl() {
+    return Long.parseLong(next());
+  }
 
-    public void close() throws IOException {
-        reader.close();
-    }
-    
+  public void close() throws IOException {
+    reader.close();
+  }
+
 }

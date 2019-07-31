@@ -6,6 +6,6 @@ import java.io.PrintWriter;
 
 public interface Solvable {
 
-    void solve(InputReader in, PrintWriter out);
-    
+  void solve(InputReader in, PrintWriter out);
+
 }
