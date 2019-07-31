@@ -11,7 +11,7 @@ import static java.lang.String.format;
 
 public abstract class Checker {
 
-  final String problemName;
+  private final String problemName;
 
   public Checker(String problemName) {
     this.problemName = problemName;
@@ -30,14 +30,18 @@ public abstract class Checker {
   }
 
   private InputReader createInputReader(int testCase) throws Exception {
-    String inputFile = format("%s-%02d.in", problemName, testCase);
-    return new InputReader(new FileInputStream(new File(inputFile)));
+    String inputFile = format("%02d.in", testCase);
+    return new InputReader(new FileInputStream(new File(getFolder() + "\\" + inputFile)));
   }
 
   private PrintWriter createOutputWriter(int testCase) throws Exception {
-    String output = format("%s-%02d.mine", problemName, testCase);
-    return new PrintWriter(new File(output));
+    String outputFile = format("%02d.mine", testCase);
+    return new PrintWriter(new File(getFolder() + "\\" + outputFile));
   }
 
   protected abstract void validate(int testNumber) throws Exception;
+
+  final String getFolder() {
+    return problemName.toLowerCase();
+  }
 }

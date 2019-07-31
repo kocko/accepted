@@ -10,13 +10,24 @@ public class InputGenerator {
 
   public void generateTestSuite(String problem, Consumer<PrintWriter> testCase, int count) throws Exception {
     PrintWriter out;
-    while (count-- > 0) {
-      String fileName = String.format("%s-%02d.in", problem, ++test);
-      out = new PrintWriter(new File(fileName));
-      testCase.accept(out);
-      out.flush();
-      out.close();
+    String folder = problem.toLowerCase();
+    if (createFolder(folder)) {
+      while (count-- > 0) {
+        String fileName = String.format("%02d.in", ++test);
+        out = new PrintWriter(new File(folder + "\\" + fileName));
+        testCase.accept(out);
+        out.flush();
+        out.close();
+      }
     }
+  }
+
+  private boolean createFolder(String folder) {
+    File directory = new File(folder);
+    if (!directory.exists()) {
+      return directory.mkdir();
+    }
+    return false;
   }
 
 }

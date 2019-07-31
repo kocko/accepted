@@ -19,12 +19,12 @@ public class LineByLineChecker extends Checker {
     System.out.flush();
     Verdict verdict = Verdict.OK;
 
-    final String pattern = "%s-%02d.%s";
+    final String pattern = "%02d.%s";
 
-    String judgeFileName = format(pattern, problemName, testCase, "out");
-    String mineFileName = format(pattern, problemName, testCase, "mine");
-    BufferedReader judgeSolution = new BufferedReader(new FileReader(new File(judgeFileName)));
-    BufferedReader mineSolution = new BufferedReader(new FileReader(new File(mineFileName)));
+    String judgeFileName = format(pattern, testCase, "out");
+    String mineFileName = format(pattern, testCase, "mine");
+    BufferedReader judgeSolution = new BufferedReader(new FileReader(new File(getFolder() + "\\" + judgeFileName)));
+    BufferedReader mineSolution = new BufferedReader(new FileReader(new File(getFolder() + "\\" + mineFileName)));
 
     boolean equal = true;
     String judgeLine = judgeSolution.readLine().trim(), myLine = mineSolution.readLine().trim();
